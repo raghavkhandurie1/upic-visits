@@ -427,7 +427,7 @@
   async function lookupAddress(){
     const el = $('locAddr');
     if (!loc) return;
-    if (loc.sample || !LIVE) { el.textContent = 'The street and building name appear here once the site is connected (see SETUP.md).'; el.hidden = false; return; }
+    if (loc.sample || !LIVE) { el.textContent = loc.sample || IN_CLAUDE ? 'The street and building name appear here on the real website.' : 'Street address lookup is not switched on yet. Your GPS location is still recorded.'; el.hidden = false; return; }
     const key = loc.lat.toFixed(4) + ',' + loc.lng.toFixed(4);
     if (key === addrFor) return;
     addrFor = key; el.textContent = 'Looking up address…'; el.hidden = false;
